@@ -1,4 +1,4 @@
-package java.config;
+package com.ohgiraffers.config;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +15,7 @@ public class Template {
     public static SqlSession getSqlSession() {
 
         if (sqlSessionFactory == null) {
-            String resource = "mybatis-config.xml";
+            String resource = "config/mybatis-config.xml";
             try {
                 InputStream inputStream = Resources.getResourceAsStream(resource);
                 sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -25,8 +25,7 @@ public class Template {
             }
         }
         SqlSession sqlSession = sqlSessionFactory.openSession(false);
-        System.out.println("SqlSessionFactory 의 hashcode() : " + sqlSessionFactory.hashCode());
-        System.out.println("SqlSession의 hashCode() : " + sqlSession.hashCode());
+
 
         return sqlSession;
     }

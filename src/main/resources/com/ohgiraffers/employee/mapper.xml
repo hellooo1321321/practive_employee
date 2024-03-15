@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.employee.Mapper">
+    <resultMap id="employeeResultMap" type="com.ohgiraffers.config.EmployeeDTO">
+        <id property="empId" column="EMP_ID"/>
+        <result property="empName" column="EMP_NAME"/>
+        <result property="empNo" column="EMP_NO"/>
+        <result property="email" column="EMAIL"/>
+        <result property="phone" column="PHONE"/>
+        <result property="deptCode" column="DEPT_CODE"/>
+        <result property="jobCode" column="JOB_CODE"/>
+        <result property="salLevel" column="SAL_LEVEL"/>
+        <result property="salary" column="SALARY"/>
+        <result property="bonus" column="BONUS"/>
+        <result property="managerId" column="MANAGER_ID"/>
+        <result property="hireDate" column="HIRE_DATE"/>
+        <result property="entDate" column="ENT_DATE"/>
+        <result property="entYN" column="ENT_YN"/>
+    </resultMap>
+
+    <select id="login" resultType="boolean">
+        SELECT COUNT(*) AS isLogin
+        FROM employee
+        WHERE EMP_NAME = #{empName} AND EMP_NO = #{empNo}
+    </select>
+
+    <select id="searchByEmployee" resultMap="employeeResultMap">
+        SELECT EMP_ID, EMP_NAME, EMP_NO, HIRE_DATE, SALARY
+        FROM employee
+        WHERE EMP_ID = #{empId}
+    </select>
+
+    <select id="selectAll" resultMap="employeeResultMap">
+        SELECT *
+        FROM employee
+    </select>
+
+    <select id="updateByEmployee" parameterType="hashmap" resultMap="employeeResultMap">
+        UPDATE employee
+        SET EMAIL = #{email}, PHONE = #{phone}, SALARY = #{salary}
+        WHERE EMP_NAME = #{name}
+    </select>
+</mapper>

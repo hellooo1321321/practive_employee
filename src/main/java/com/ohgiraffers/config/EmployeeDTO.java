@@ -1,4 +1,4 @@
-package java.config;
+package com.ohgiraffers.config;
 
 import java.sql.Date;
 

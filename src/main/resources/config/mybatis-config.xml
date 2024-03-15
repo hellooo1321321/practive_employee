@@ -16,6 +16,6 @@
         </environment>
     </environments>
     <mappers>
-        <package name="employee.mapper.xml"/>
+        <package name="com.ohgiraffers.employee"/>
     </mappers>
 </configuration>
