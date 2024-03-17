@@ -55,6 +55,20 @@ public class EmployeeService {
 
         sqlSession.close();
     }
+    public static void thisYearKing() {
+
+        SqlSession sqlSession = getSqlSession();
+        mapper = sqlSession.getMapper(Mapper.class);
+        List<EmployeeDTO> empList = mapper.thisYearKing();
+
+        for(int i = 0; i < 3; i++){
+            EmployeeDTO emp = empList.get(i);
+            System.out.println((i + 1) + "위 이름 : " + emp.getEmpName() + " 급여 : " + emp.getSalary());
+        }
+
+        sqlSession.close();
+
+    }
 
     public static int updateByEmployee(HashMap<String, String> updatehashmap) {
 
@@ -126,12 +140,5 @@ public class EmployeeService {
         sqlSession.close();
     }
 
-    public static void thisYearKing() {
 
-        SqlSession sqlSession = getSqlSession();
-        List<EmployeeDTO> empList = mapper.thisYearKing();
-
-        for(int i = 0; i < empList.size(); i++){
-        }
-    }
 }

@@ -22,7 +22,7 @@ public class LoginSuccess {
                 case 2 : EmployeeService.searchByEmployee(inputId()); break;
                 case 3 : EmployeeService.updateByEmployee(inputUpdate()); break;
                 case 4 : EmployeeService.deleteByEmployee(inputId()); break;
-                case 5 : EmployeeService.thisYearKing();
+                case 5 : EmployeeService.thisYearKing(); break;
                 case 9 : return;
             }
 

@@ -52,4 +52,11 @@
         INSERT INTO EMPLOYEE ( EMP_ID, EMP_NAME, EMP_NO, PHONE, HIRE_DATE, JOB_CODE, SAL_LEVEL )
         VALUES( #{empId}, #{empName}, #{empNo}, #{phone}, #{hireDate}, #{jobCode}, #{salLevel} )
     </insert>
+
+    <select id="thisYearKing" resultMap="employeeResultMap">
+        SELECT CONCAT(SUBSTRING(EMP_NAME, 1, 1), '*', SUBSTRING(EMP_NAME, 3)) AS EMP_NAME , SALARY
+        FROM EMPLOYEE
+        ORDER BY SALARY DESC
+        LIMIT 3;
+    </select>
 </mapper>
