@@ -2,7 +2,6 @@ package com.ohgiraffers.employee;
 
 import com.ohgiraffers.config.EmployeeDTO;
 
-import java.util.HashMap;
 import java.util.List;
 
 public interface Mapper {
@@ -13,5 +12,13 @@ public interface Mapper {
 
     List<EmployeeDTO> selectAll();
 
-    int updateByEmployee(HashMap<String, String> updatehashmap);
+    int updateByEmployee(EmployeeDTO updatehashmap);
+
+    int deleteByEmployee(String empId);
+
+    int registByEmployee(EmployeeDTO empDTO);
+
+    List<EmployeeDTO> thisYearKing();
+
+
 }

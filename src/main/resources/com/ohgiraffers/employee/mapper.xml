@@ -37,9 +37,19 @@
         FROM employee
     </select>
 
-    <select id="updateByEmployee" parameterType="hashmap" resultMap="employeeResultMap">
+    <update id="updateByEmployee">
         UPDATE employee
         SET EMAIL = #{email}, PHONE = #{phone}, SALARY = #{salary}
-        WHERE EMP_NAME = #{name}
-    </select>
+        WHERE EMP_NAME = #{empName}
+    </update>
+
+    <delete id="deleteByEmployee">
+        DELETE FROM EMPLOYEE
+        where EMP_ID = #{empId}
+    </delete>
+
+    <insert id="registByEmployee" parameterType="com.ohgiraffers.config.EmployeeDTO">
+        INSERT INTO EMPLOYEE ( EMP_ID, EMP_NAME, EMP_NO, PHONE, HIRE_DATE, JOB_CODE, SAL_LEVEL )
+        VALUES( #{empId}, #{empName}, #{empNo}, #{phone}, #{hireDate}, #{jobCode}, #{salLevel} )
+    </insert>
 </mapper>
