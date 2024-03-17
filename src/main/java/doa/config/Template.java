@@ -1,4 +1,4 @@
-package java.config;
+package doa.config;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

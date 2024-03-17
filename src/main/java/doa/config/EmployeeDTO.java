@@ -1,4 +1,4 @@
-package java.config;
+package doa.config;
 
 import java.sql.Date;
 
